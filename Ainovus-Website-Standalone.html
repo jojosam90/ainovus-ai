@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ainovus Pte. Ltd. — AI Short Drama Studio | Produce. Learn. Stream.</title>
+<meta name="description" content="Ainovus is Southeast Asia's AI-powered short drama company — we produce original content with AI, train creators to do the same, and stream it on our own platform."/>
+<meta name="theme-color" content="#0B1933"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M17 2L31 29H3L17 2Z' stroke='%231A5CE8' stroke-width='2' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5' stroke='%231A5CE8' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpolygon points='15,16 15,20 20,18' fill='%231A5CE8'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#FFFFFF;
+  --gray-sec:#EDF0F3;
+  --card:#FFFFFF;
+  --ink:#12151B;
+  --ink-2:#5B6572;
+  --ink-3:#98A2AD;
+  --blue:#1A5CE8;
+  --blue-deep:#1249CC;
+  --blue-soft:#4A86FF;
+  --cyan:#4A86FF;
+  --dark:#0B1933;
+  --dark-2:#101c3a;
+  --dark-3:#0e1a34;
+  --hair:rgba(18,21,27,.10);
+  --hair-strong:rgba(18,21,27,.18);
+  --hair-w:rgba(255,255,255,.14);
+  --sans:'Plus Jakarta Sans',-apple-system,sans-serif;
+  --display:'Fredoka','Plus Jakarta Sans',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r-card:2.25rem;
+  --r-img:1.75rem;
+  --r-sm:.85rem;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+section[id]{scroll-margin-top:110px}
+::selection{background:var(--blue);color:#fff}
+img{user-select:none;display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea,select{font-family:var(--sans);font-size:1rem}
+
+/* ── PRELOADER ── */
+.preloader{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .7s var(--ease),visibility .7s}
+.preloader.done{opacity:0;visibility:hidden}
+.pre-mark{width:44px;height:44px}
+.pre-mark path,.pre-mark polygon{stroke-dasharray:120;stroke-dashoffset:120;animation:draw 1.1s var(--ease) forwards}
+.pre-mark polygon{animation-delay:.3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pre-word{font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:.24em;color:#fff;text-indent:.24em;opacity:0;animation:fadeUp .8s var(--ease) .35s forwards}
+.pre-sub{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);opacity:0;animation:fadeUp .8s var(--ease) .55s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--blue);z-index:1002}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
+.reveal-img.in{clip-path:inset(0 0 0 0)}
+
+/* ── SHARED ── */
+.wrap{max-width:1280px;margin:0 auto;padding:0 5%}
+.label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.label.on-dark{color:#fff}
+.it{font-style:italic;color:var(--blue)}
+.sec-dark .it,.hero-left .it{color:var(--blue-soft)}
+section{padding:72px 0}
+#home{padding:0}
+#about{padding-top:24px;min-height:100vh}
+#work,#creators,#faq{padding-top:0;min-height:100vh}
+#services{padding-top:56px;min-height:100vh}
+.sec-gray{background:var(--gray-sec)}
+.sec-dark{background:var(--dark);color:#fff}
+.sec-head{max-width:660px;margin-bottom:56px}
+.sec-title{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.22;margin-top:10px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.01em;text-decoration:none;cursor:pointer;border:none;transition:all .3s var(--ease);padding:16px 30px;position:relative;overflow:hidden;border-radius:100px}
+.btn-fill{background:var(--blue);color:#fff}
+.btn-fill:hover{background:var(--blue-deep);transform:translateY(-1px)}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--hair-strong)}
+.btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--blue)}
+.btn-white:hover{background:var(--dark);color:#fff;transform:translateY(-1px)}
+.btn-ghost-w{background:transparent;color:#fff;border:1px solid var(--hair-w);padding:16px 30px;border-radius:100px;font-size:14px;font-weight:600;transition:all .3s var(--ease)}
+.btn-ghost-w:hover{background:#fff;color:var(--ink);border-color:#fff}
+
+/* ── NAV (floating pill) ── */
+.nav-mask{position:fixed;top:0;left:0;right:0;height:20px;background:var(--dark);z-index:999;pointer-events:none}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:1000;width:min(1180px,92%);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 12px 12px 22px;background:rgba(11,25,51,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.08);border-radius:100px;transition:background .3s var(--ease),box-shadow .3s var(--ease),padding .3s var(--ease)}
+nav.scrolled{background:rgba(11,25,51,.94);box-shadow:0 16px 40px -16px rgba(0,0,0,.4)}
+.nav-logo{display:flex;align-items:center;gap:9px}
+.nav-logo svg{width:24px;height:24px}
+.nav-word{font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.1em;color:#fff}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.62);position:relative;padding:4px 0;transition:color .25s}
+.nav-a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blue-soft);transition:width .25s var(--ease)}
+.nav-a:hover{color:#fff}
+.nav-a:hover::after{width:100%}
+.nav-cta{padding:12px 22px;font-size:13px}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.ham span{display:block;width:22px;height:2px;background:#fff;transition:all .3s var(--ease)}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mob-nav{position:fixed;inset:0;background:var(--dark);z-index:999;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 8%;transform:translateY(-100%);transition:transform .5s var(--ease);opacity:0}
+.mob-nav.open{transform:translateY(0);opacity:1}
+.mob-nav .nav-a{color:#fff;font-family:var(--display);font-size:clamp(28px,7vw,42px);font-weight:600;display:flex;align-items:baseline;gap:16px;padding:10px 0}
+.mob-nav .nav-a small{font-size:14px;color:var(--blue-soft);font-weight:600}
+.mob-meta{margin-top:30px;color:rgba(255,255,255,.5);font-size:13px;letter-spacing:.05em}
+body.nav-locked{overflow:hidden}
+
+/* ── HERO ── */
+#home{background:var(--dark);color:#fff;padding-top:120px;padding-bottom:0;overflow:hidden;position:relative;min-height:100vh;display:flex;align-items:center}
+#home>.wrap{width:100%}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding-bottom:64px}
+.hero-left{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.hero-kicker{margin-bottom:22px}
+.hero-title{font-family:var(--display);font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.08;margin-bottom:22px}
+.hero-title em{font-style:normal;color:var(--blue-soft)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.62);max-width:480px;margin-bottom:32px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.hero-stats{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:40px}
+.hstat{display:flex;flex-direction:column;gap:3px}
+.hstat-n{font-family:var(--display);font-weight:600;font-size:1.35rem;color:#fff}
+.hstat-l{font-size:10.5px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.04em;max-width:120px;line-height:1.4}
+.hstat-div{width:1px;height:30px;background:rgba(255,255,255,.15)}
+.hero-right{position:relative}
+.collage{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:1fr 1fr;gap:14px;height:460px;transform:rotate(1.5deg)}
+.col-tile{border-radius:var(--r-img);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.1)}
+.col-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.col-a{grid-row:1/3}
+.col-b{grid-column:2}
+.col-c{grid-column:2}
+.collage-badge{position:absolute;left:20px;bottom:26px;display:flex;align-items:center;gap:12px;background:rgba(14,26,52,.92);backdrop-filter:blur(10px);border:1px solid var(--hair-w);border-radius:100px;padding:12px 20px 12px 14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+.cb-dot{width:9px;height:9px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;flex-shrink:0}
+.collage-badge div{display:flex;flex-direction:column;line-height:1.3}
+.collage-badge strong{font-family:var(--display);font-size:.9rem;color:#fff;font-weight:600}
+.collage-badge small{font-size:11px;color:rgba(255,255,255,.5)}
+
+/* ── ABOUT (split) ── */
+.split-block{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.split-img{border-radius:var(--r-card);overflow:hidden;background:var(--gray-sec)}
+.split-img img{width:100%;height:100%;min-height:460px;object-fit:cover}
+.split-title{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.01em;line-height:1.28;margin-bottom:20px}
+.lede{font-size:1.08rem;font-weight:500;color:var(--ink);margin-bottom:16px}
+.body-t{color:var(--ink-2);margin-bottom:28px}
+.check-list{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+.check-list li{display:flex;gap:14px;align-items:flex-start}
+.check-ico{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(26,92,232,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px}
+.check-list strong{color:var(--ink);font-weight:700}
+.check-list li div{color:var(--ink-2);font-size:.95rem;line-height:1.6}
+.based-line{color:var(--ink-2);font-size:.92rem;margin-bottom:28px}
+.based-line strong{color:var(--ink)}
+
+/* ── ADVANTAGES ── */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border-radius:var(--r-sm);overflow:hidden}
+.adv-card{background:var(--paper);padding:36px 30px}
+.adv-no{font-family:var(--display);font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.05em}
+.adv-card h3{font-family:var(--display);font-weight:600;font-size:1.12rem;margin:14px 0 8px}
+.adv-card p{color:var(--ink-2);font-size:.9rem;line-height:1.6}
+
+/* ── WORK (dark cards) ── */
+.work-item{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:var(--dark-2);border:1px solid var(--hair-w);border-radius:var(--r-card);overflow:hidden;margin-bottom:24px}
+.work-item:last-of-type{margin-bottom:0}
+.work-item.reverse .work-img{order:2}
+.work-img{background:var(--gray-sec)}
+.work-img img{width:100%;height:100%;min-height:320px;object-fit:cover}
+.work-body{padding:44px}
+.work-title{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,2vw,1.8rem);margin-bottom:14px;color:#fff}
+.work-desc{color:rgba(255,255,255,.6);margin-bottom:24px;font-size:.96rem}
+.work-stats{display:flex;gap:32px;margin-bottom:22px;flex-wrap:wrap}
+.wstat{display:flex;flex-direction:column;gap:4px}
+.wstat-n{font-family:var(--display);font-weight:600;font-size:1.4rem;color:#fff}
+.wstat-l{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.read-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#fff}
+.arrow-e{transition:transform .3s var(--ease)}
+.read-link:hover .arrow-e{transform:translateX(6px)}
+.read-link:hover{color:var(--blue-soft)}
+
+/* ── SERVICES (card grid) ── */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:40px}
+.srv-card{display:flex;flex-direction:column;gap:14px;padding:34px;border:1px solid var(--hair);border-radius:var(--r-img);transition:all .3s var(--ease)}
+.srv-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 26px 50px -26px rgba(26,92,232,.3)}
+.srv-no{font-family:var(--display);font-weight:700;color:var(--ink-3);font-size:14px}
+.srv-name{font-family:var(--display);font-weight:600;font-size:1.2rem}
+.srv-desc{color:var(--ink-2);font-size:.92rem;flex:1}
+.srv-arrow{width:38px;height:38px;border-radius:50%;border:1px solid var(--hair-strong);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.srv-card:hover .srv-arrow{background:var(--blue);border-color:var(--blue);color:#fff}
+.srv-all{display:flex;width:fit-content}
+
+/* ── CREATOR TOOLS (dark) ── */
+#creators{background:var(--dark);color:#fff}
+.cr-head{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;margin-bottom:16px}
+.cr-title{font-family:var(--display);font-weight:600;font-size:clamp(2rem,3.6vw,3rem);line-height:1.14;margin-top:18px}
+.cr-title em{font-style:normal;color:var(--blue-soft)}
+.cr-side p{color:rgba(255,255,255,.6);margin-bottom:22px;font-size:.98rem}
+
+.cr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair-w);border-radius:var(--r-sm);overflow:hidden;margin-bottom:1px}
+.cr-cell{background:var(--dark);padding:16px 26px;transition:background .3s var(--ease)}
+.cr-cell:hover{background:var(--dark-2)}
+.cr-cell-no{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--blue-soft);text-transform:uppercase}
+.cr-cell h3{font-family:var(--display);font-weight:600;font-size:1.05rem;margin:14px 0 10px}
+.cr-cell p{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.55}
+
+.cr-log{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair-w);margin-top:1px}
+.log-sheet{background:var(--dark-3);padding:16px 28px;font-family:var(--sans);font-size:14px}
+.log-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;margin-bottom:4px;border-bottom:1px solid var(--hair-w)}
+.log-live{display:flex;align-items:center;font-weight:600;font-size:13px;color:#fff}
+.log-head i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue-soft);margin-right:9px;box-shadow:0 0 8px var(--blue-soft)}
+.log-tag{font-size:11px;font-weight:600;letter-spacing:.03em;color:rgba(255,255,255,.35)}
+.log-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.06);opacity:0;transform:translateX(-8px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.log-row:last-child{border-bottom:none;padding-bottom:0}
+.log-row.in{opacity:1;transform:none}
+.log-k{font-size:13px;font-weight:500;color:rgba(255,255,255,.45)}
+.log-v{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px}
+.log-v.accent{color:var(--blue-soft)}
+.log-check{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(74,222,128,.15);color:#4ade80;flex-shrink:0}
+.log-status{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--blue-soft);background:rgba(74,134,255,.14);padding:7px 16px;border-radius:100px}
+.cr-modules{background:var(--dark);padding:12px 26px;display:flex;flex-direction:column;gap:2px}
+.mod-row{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair-w)}
+.mod-row:last-child{border-bottom:none}
+.mod-no{font-size:12px;color:var(--blue-soft);font-weight:700;width:32px}
+.mod-name{flex:1;font-size:.95rem;font-weight:600;display:flex;flex-direction:column;gap:3px}
+.mod-name small{font-size:.78rem;font-weight:400;color:rgba(255,255,255,.45)}
+.mod-tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--blue-soft);background:rgba(74,134,255,.12);padding:6px 12px;border-radius:100px}
+
+/* ── FAQ ── */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.faq-left h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.15;margin-bottom:20px}
+.faq-left p{color:var(--ink-2);margin-bottom:26px}
+.faq-list{display:flex;flex-direction:column;gap:14px;margin-top:40px}
+.fi{background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-img);padding:0 26px;transition:border-color .3s var(--ease)}
+.fi.open{border-color:var(--blue)}
+.fq{width:100%;display:flex;align-items:center;gap:18px;background:none;border:none;text-align:left;padding:22px 0;font-size:1.02rem;font-weight:500;color:var(--ink);cursor:pointer}
+.fq-no{font-size:13px;color:var(--ink-3);font-weight:600;width:26px;flex-shrink:0}
+.fi-icon{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--gray-sec);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:400;color:var(--ink);flex-shrink:0;transition:transform .3s var(--ease),background .3s var(--ease),color .3s}
+.fi.open .fi-icon{transform:rotate(45deg);background:var(--blue);color:#fff}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.fa-inner{padding:0 0 22px 44px;color:var(--ink-2);font-size:.95rem;line-height:1.65}
+
+/* ── CTA BAND ── */
+/* ── CONTACT ── */
+#contact .label{margin-bottom:36px}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
+.contact-h{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.15;margin-bottom:18px;color:#fff}
+.contact-p{color:rgba(255,255,255,.6);margin-bottom:32px;max-width:420px}
+.cdetails{border-top:1px solid var(--hair-w)}
+.cd{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair-w)}
+.cd-k{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.cd-v{font-size:.98rem;font-weight:600;text-align:right;color:#fff}
+.cd-v a:hover{color:var(--blue-soft)}
+
+.form-wrap{background:var(--dark-2);border:1px solid var(--hair-w);border-radius:var(--r-img);padding:36px;margin-top:-40px}
+.form-title{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:24px;color:#fff}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fr-phone{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.fg{margin-bottom:16px;display:flex;flex-direction:column;gap:8px}
+.fg label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.fg input,.fg select,.fg textarea{background:var(--dark-3);border:1px solid var(--hair-w);border-radius:var(--r-sm);padding:14px 16px;color:#fff;transition:border-color .25s}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--blue-soft)}
+.fg textarea{min-height:100px;resize:vertical}
+.form-btn{width:100%;background:var(--blue);color:#fff;border:none;border-radius:100px;padding:17px;font-size:14px;font-weight:700;cursor:pointer;transition:background .3s var(--ease)}
+.form-btn:hover{background:var(--blue-deep)}
+.form-btn.sent{background:#16a34a}
+.form-btn:disabled{cursor:default}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:#fff;padding:64px 5% 0}
+footer .nav-word{color:#fff}
+.ft-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:50px;padding-bottom:44px}
+.ft-desc{color:rgba(255,255,255,.55);font-size:.92rem;margin:16px 0 0;max-width:280px}
+.ft-col h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:20px}
+.ft-col ul{display:flex;flex-direction:column;gap:14px}
+.ft-col a{font-size:.95rem;color:rgba(255,255,255,.55);transition:color .25s}
+.ft-col a:hover{color:var(--blue-soft)}
+.ft-social{display:flex;gap:10px}
+.ft-social a{width:36px;height:36px;border-radius:50%;border:1px solid var(--hair-w);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:all .25s var(--ease)}
+.ft-social a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.ft-bottom{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:24px 0;border-top:1px solid var(--hair-w);font-size:.85rem;color:rgba(255,255,255,.4)}
+.ft-bottom a{color:rgba(255,255,255,.4)}
+.ft-bottom a:hover{color:var(--blue-soft)}
+
+/* ── BACK TO TOP ── */
+.to-top{position:fixed;right:33px;bottom:98px;width:48px;height:48px;border-radius:50%;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s var(--ease);z-index:500;box-shadow:0 10px 30px -10px rgba(18,21,27,.35)}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--blue)}
+
+/* ── LEGAL PAGE ── */
+.legal-hero{padding-top:120px;background:var(--dark);color:#fff}
+.legal-hero .wrap{padding-bottom:44px}
+.legal-title{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.1;margin-top:10px}
+.legal-updated{color:rgba(255,255,255,.55);font-size:14px;margin-top:16px}
+.legal-body{max-width:760px;margin:0 auto;padding:56px 5% 72px}
+.legal-body h2{font-family:var(--display);font-weight:600;font-size:1.35rem;margin:44px 0 14px}
+.legal-body h2:first-child{margin-top:0}
+.legal-body p{color:var(--ink-2);margin-bottom:16px}
+.legal-body ul{margin:0 0 16px;padding-left:0}
+.legal-body ul li{position:relative;padding-left:22px;color:var(--ink-2);margin-bottom:10px}
+.legal-body ul li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.legal-body a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.legal-body strong{color:var(--ink)}
+.legal-page-section{padding:0}
+.legal-hero-inline{background:var(--dark);color:#fff;padding:48px 0 32px}
+
+/* ── COOKIE CONSENT ── */
+.cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:1100;display:flex;justify-content:center;padding:0 20px 20px;transform:translateY(120%);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease);pointer-events:none}
+.cookie-banner.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.cookie-inner{width:min(760px,100%);background:rgba(11,25,51,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--hair-w);border-radius:1.4rem;padding:24px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 24px 60px -16px rgba(0,0,0,.5)}
+.cookie-inner p{flex:1 1 320px;color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.6;margin:0}
+.cookie-inner a{color:var(--blue-soft);text-decoration:underline;text-underline-offset:2px}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-actions .btn{padding:12px 22px;font-size:13px}
+.btn-line-w{background:transparent;color:#fff;border:1px solid var(--hair-w)}
+.btn-line-w:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+@media (max-width:600px){
+  .cookie-banner{padding:0 12px 12px}
+  .cookie-inner{padding:20px;flex-direction:column;align-items:stretch;text-align:left}
+  .cookie-actions{width:100%}
+  .cookie-actions .btn{flex:1;justify-content:center}
+}
+
+/* ── WHATSAPP ── */
+.wa-widget{position:fixed;right:28px;bottom:28px;z-index:500}
+.whatsapp-btn{position:relative;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 10px 30px -8px rgba(37,211,102,.55);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.whatsapp-btn:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 14px 34px -6px rgba(37,211,102,.6)}
+.wa-ring{position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.55;animation:waPulse 2.4s ease-out infinite}
+@keyframes waPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.7);opacity:0}}
+@media (prefers-reduced-motion: reduce){.wa-ring{animation:none;display:none}}
+
+.wa-menu{position:absolute;bottom:calc(100% + 16px);right:0;width:296px;max-width:calc(100vw - 40px);background:rgba(11,25,51,.98);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--hair-w);border-radius:1.2rem;padding:10px;box-shadow:0 24px 60px -16px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
+.wa-menu.open{opacity:1;visibility:visible;transform:none}
+.wa-menu-head{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4);padding:8px 12px 10px}
+.wa-menu-item{display:flex;flex-direction:column;gap:2px;padding:11px 12px;border-radius:.85rem;transition:background .2s var(--ease)}
+.wa-menu-item:hover{background:rgba(255,255,255,.07)}
+.wa-item-title{font-size:14px;font-weight:600;color:#fff}
+.wa-item-sub{font-size:12px;color:rgba(255,255,255,.45)}
+
+@media (max-width:760px){
+  .wa-widget{right:20px;bottom:20px}
+  .whatsapp-btn{width:52px;height:52px}
+  .to-top{right:24px;bottom:84px;width:44px;height:44px}
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px){
+  section{padding:48px 0}
+  .split-block,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .hero-grid{grid-template-columns:1fr;padding-bottom:48px}
+  .collage{height:380px;transform:none;margin-top:8px}
+  .collage-badge{left:20px}
+  .cr-head{grid-template-columns:1fr}
+  .cr-grid{grid-template-columns:repeat(2,1fr)}
+  .cr-log{grid-template-columns:1fr}
+  .work-item,.work-item.reverse{grid-template-columns:1fr}
+  .work-item.reverse .work-img{order:0}
+  .work-img img{min-height:240px}
+  .adv-grid{grid-template-columns:repeat(2,1fr)}
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .ft-top{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .ham{display:flex}
+  nav{top:12px;padding:10px 10px 10px 18px;width:94%}
+  section{padding:36px 0}
+  #home{padding-top:96px}
+  .hero-ctas{width:100%;flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{justify-content:center}
+  .collage{height:300px}
+  .cr-grid{grid-template-columns:1fr}
+  .adv-grid,.srv-grid{grid-template-columns:1fr}
+  .fr2{grid-template-columns:1fr}
+  .fr-phone{grid-template-columns:1fr}
+  .form-wrap{padding:24px}
+  .ft-top{grid-template-columns:1fr;gap:32px}
+  .work-item{gap:0}
+  .work-body{padding:28px 22px}
+  .work-img img{height:220px;min-height:0}
+  .work-stats{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <svg class="pre-mark" viewBox="0 0 34 34" fill="none">
+    <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="1.4" stroke-linecap="round"/>
+    <polygon points="15,16 15,20 20,18" fill="none" stroke="#8AB4FF" stroke-width="1.2"/>
+  </svg>
+  <div class="pre-word">AINOVUS</div>
+  <div class="pre-sub">AI Short Drama Studio</div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="nav-mask"></div>
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#home">
+    <svg viewBox="0 0 34 34" fill="none">
+      <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="2" stroke-linecap="round"/>
+      <polygon points="15,16 15,20 20,18" fill="#4A86FF"/>
+    </svg>
+    <span class="nav-word">AINOVUS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a class="nav-a" href="#home">Home</a></li>
+    <li><a class="nav-a" href="#about">About</a></li>
+    <li><a class="nav-a" href="#work">Work</a></li>
+    <li><a class="nav-a" href="#services">Services</a></li>
+    <li><a class="nav-a" href="#creators">Creator tools</a></li>
+    <li><a class="nav-a" href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta btn btn-fill" href="#contact"><span>Contact us</span></a>
+  <button class="ham" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob">
+  <a class="nav-a" href="#home"><small>01</small>Home</a>
+  <a class="nav-a" href="#about"><small>02</small>About</a>
+  <a class="nav-a" href="#work"><small>03</small>Work</a>
+  <a class="nav-a" href="#services"><small>04</small>Services</a>
+  <a class="nav-a" href="#creators"><small>05</small>Creator tools</a>
+  <a class="nav-a" href="#faq"><small>06</small>FAQ</a>
+  <a class="nav-a" href="#contact"><small>07</small>Contact us</a>
+  <div class="mob-meta">Singapore · ainovus.ai · +65 96636883</div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="hero-kicker label on-dark reveal">Ainovus Pte. Ltd. — Singapore · Est. 2022</div>
+      <h1 class="hero-title reveal">Short drama, made by <em>AI,</em> watched by millions.</h1>
+      <p class="hero-sub reveal">Ainovus is Southeast Asia's AI-powered short drama company — we produce original content with AI, train creators to do the same, and stream it on our own platform.</p>
+      <div class="hero-ctas reveal">
+        <a class="btn btn-fill" href="#services"><span>Explore services 👋</span></a>
+        <a class="btn btn-ghost-w" href="#contact">Contact us</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hstat"><span class="hstat-n">12</span><span class="hstat-l">Episodes in under 3 weeks</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">6</span><span class="hstat-l">SEA markets served</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">iOS·AOS</span><span class="hstat-l">Live now</span></div>
+      </div>
+    </div>
+    <div class="hero-right reveal-img">
+      <div class="collage">
+        <div class="col-tile col-a"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80&auto=format&fit=crop" alt="Cinema audience watching a premiere" loading="lazy" decoding="async"/></div>
+        <div class="col-tile col-b"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80&auto=format&fit=crop" alt="Film production set" loading="lazy" decoding="async"/></div>
+        <div class="col-tile col-c"><img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80&auto=format&fit=crop" alt="Browsing short drama content on a mobile phone" loading="lazy" decoding="async"/></div>
+      </div>
+      <div class="collage-badge">
+        <span class="cb-dot"></span>
+        <div><strong>12 episodes</strong><small>shipped in &lt; 3 weeks</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="split-block reveal">
+      <figure class="split-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1100&q=80&auto=format&fit=crop" alt="Cinema audience watching a premiere" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="split-body">
+        <span class="label">About the company</span>
+        <h2 class="split-title">We sit where <span class="it">artificial intelligence</span> meets the oldest human habit — <span class="it">a good story.</span></h2>
+        <p class="lede">Founded in Singapore, Ainovus Pte. Ltd. sits at the intersection of artificial intelligence and short-form entertainment. We use AI to produce original short dramas faster and at scale — then stream them on our own platform built for Southeast Asian audiences.</p>
+        <p class="body-t">We also share what we know. Our AI video training courses teach creators, filmmakers and entrepreneurs how to harness AI tools to produce compelling short drama — without a traditional production budget.</p>
+        <ul class="check-list">
+          <li><span class="check-ico">✓</span><div><strong>AI Video Production</strong> — scripts, visuals, voice and post, produced entirely with AI.</div></li>
+          <li><span class="check-ico">✓</span><div><strong>AI Training Courses</strong> — hands-on programmes for creators, no studio needed.</div></li>
+          <li><span class="check-ico">✓</span><div><strong>Streaming Platform</strong> — the Ainovus app, live on iOS &amp; Android.</div></li>
+        </ul>
+        <p class="based-line"><strong>Based in Singapore</strong> — serving Indonesia, Malaysia, Thailand, the Philippines &amp; Vietnam.</p>
+        <a class="btn btn-dark" href="#work">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section id="advantages" class="sec-gray">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Why Ainovus</span>
+      <h2 class="sec-title">Unlock the <span class="it">advantages</span> of AI-made drama.</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal"><span class="adv-no">01</span><h3>Fast Production</h3><p>12 episodes produced in under 3 weeks, script to publish.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.06s"><span class="adv-no">02</span><h3>Full AI Toolkit</h3><p>Script, video, voice and publishing handled end-to-end with AI.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.12s"><span class="adv-no">03</span><h3>Own Streaming Platform</h3><p>The Ainovus app, live now on iOS and Android.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.18s"><span class="adv-no">04</span><h3>Regional Reach</h3><p>Serving 6 Southeast Asian markets and growing.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.24s"><span class="adv-no">05</span><h3>Creator Training</h3><p>Learn the full AI production pipeline — no studio required.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.3s"><span class="adv-no">06</span><h3>Singapore Based</h3><p>Headquartered in Singapore, built for Southeast Asian audiences.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="sec-dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label on-dark">Selected work</span>
+      <h2 class="sec-title">Showcasing our <span class="it">best work.</span></h2>
+    </div>
+
+    <div class="work-item">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=900&q=80&auto=format&fit=crop" alt="Film production set for Midnight in Jakarta" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">Romance / Drama, Singapore</span>
+        <h3 class="work-title">Midnight in Jakarta</h3>
+        <p class="work-desc">Script, scenes, voice, subtitles — our team used the full Ainovus AI toolkit to take a romance drama from premise to publish-ready in three weeks, now streaming on the Ainovus platform.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">12</span><span class="wstat-l">Episodes</span></div>
+          <div class="wstat"><span class="wstat-n">5 min</span><span class="wstat-l">Per episode</span></div>
+          <div class="wstat"><span class="wstat-n">&lt;3 wks</span><span class="wstat-l">Script to publish</span></div>
+        </div>
+        <a class="read-link" href="#creators">See how it was made <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+
+    <div class="work-item reverse">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop" alt="AI training course session" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">Creator programme</span>
+        <h3 class="work-title">AI Video Training Course</h3>
+        <p class="work-desc">An online programme covering AI scriptwriting, video generation, voice &amp; audio AI, editing and publishing — for creators, filmmakers and entrepreneurs, no prior production experience needed.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">4</span><span class="wstat-l">AI modules</span></div>
+          <div class="wstat"><span class="wstat-n">0</span><span class="wstat-l">Studio required</span></div>
+        </div>
+        <a class="read-link" href="#creators">Explore the curriculum <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=900&q=80&auto=format&fit=crop" alt="Browsing short drama content on a mobile phone" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">The Ainovus app</span>
+        <h3 class="work-title">Short Drama Streaming Platform</h3>
+        <p class="work-desc">Our own mobile platform for AI-produced short drama on iOS and Android, with mood-based browsing and AI recommendations built for Southeast Asian audiences.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">iOS·AOS</span><span class="wstat-l">Native apps</span></div>
+          <div class="wstat"><span class="wstat-n">6</span><span class="wstat-l">Markets served</span></div>
+        </div>
+        <a class="read-link" href="#contact">Get platform access <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">What we do</span>
+      <h2 class="sec-title">Everything you need to make, learn, and watch <span class="it">AI drama</span> — under one roof.</h2>
+    </div>
+    <div class="srv-grid">
+      <a class="srv-card reveal" href="#contact">
+        <span class="srv-no">01</span>
+        <h3 class="srv-name">AI Video Production</h3>
+        <p class="srv-desc">Original short drama produced end-to-end with AI.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="srv-card reveal" style="transition-delay:.06s" href="#contact">
+        <span class="srv-no">02</span>
+        <h3 class="srv-name">AI Video Training Course</h3>
+        <p class="srv-desc">Learn to produce short drama with AI, no studio needed.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="srv-card reveal" style="transition-delay:.12s" href="#contact">
+        <span class="srv-no">03</span>
+        <h3 class="srv-name">Short Drama Streaming Platform</h3>
+        <p class="srv-desc">The Ainovus app, live on iOS &amp; Android.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+    <a class="btn btn-dark srv-all" href="#contact">All services</a>
+  </div>
+</section>
+
+<!-- CREATOR TOOLS -->
+<section id="creators">
+  <div class="wrap creators-inner">
+    <div class="cr-head">
+      <div class="reveal">
+        <span class="label on-dark">Creator tools — the studio</span>
+        <h2 class="cr-title">Make short drama with AI.<br/><em>No studio needed.</em></h2>
+      </div>
+      <div class="cr-side reveal">
+        <p>Our full AI production toolkit — from idea to finished episode, with no camera crew, no actors, and no traditional budget required.</p>
+        <a class="btn btn-fill" href="#contact"><span>Get access</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cr-grid">
+      <div class="cr-cell reveal"><span class="cr-cell-no">Tool / 01</span><h3>AI Script Writing</h3><p>Generate episode-ready scripts from a simple idea — full dialogue, story beats and emotional hooks included.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.08s"><span class="cr-cell-no">Tool / 02</span><h3>AI Video Generation</h3><p>Turn scripts into cinematic episodes — AI scenes, characters, expressions and camera movement.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.16s"><span class="cr-cell-no">Tool / 03</span><h3>Voice &amp; Audio AI</h3><p>AI voiceovers, multilingual dubbing, music and sound effects — studio-quality audio, automatically.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.24s"><span class="cr-cell-no">Tool / 04</span><h3>Publish to Ainovus</h3><p>One-click distribution to the Ainovus platform — reach viewers across Southeast Asia instantly.</p></div>
+    </div>
+
+    <div class="cr-log">
+      <div class="log-sheet reveal" id="logSheet">
+        <div class="log-head"><span class="log-live"><i></i>Production run — live</span><span class="log-tag">ainovus_studio</span></div>
+        <div class="log-row"><span class="log-k">Series</span><span class="log-v accent">Midnight in Jakarta</span></div>
+        <div class="log-row"><span class="log-k">Genre</span><span class="log-v">Romance / Drama</span></div>
+        <div class="log-row"><span class="log-k">Episodes</span><span class="log-v">12 × 5 min</span></div>
+        <div class="log-row"><span class="log-k">Script</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Generated</span></div>
+        <div class="log-row"><span class="log-k">Scenes</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Rendered</span></div>
+        <div class="log-row"><span class="log-k">Voice &amp; subs</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Added</span></div>
+        <div class="log-row"><span class="log-k">Status</span><span class="log-status">Ready to publish</span></div>
+      </div>
+      <div class="cr-modules reveal">
+        <div class="mod-row"><span class="mod-no">M.1</span><span class="mod-name">AI Scriptwriting<small>From premise to full episode dialogue</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.2</span><span class="mod-name">AI Video Generation<small>Scenes, characters and cinematic motion</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.3</span><span class="mod-name">Voice &amp; Audio AI<small>Voiceover, dubbing, music and sound design</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.4</span><span class="mod-name">Publishing &amp; Monetisation<small>Launch on Ainovus and grow an audience</small></span><span class="mod-tag">Included</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec-gray">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left reveal">
+        <span class="label">FAQ</span>
+        <h2>Frequently<br/>asked questions</h2>
+        <p>Everything you need to know about Ainovus — our products, services, courses, and platform. Can't find it here? Our team responds within 1 business day.</p>
+        <a class="btn btn-dark" href="#contact">Contact us</a>
+      </div>
+      <div class="faq-list">
+        <div class="fi open reveal">
+          <button class="fq" aria-expanded="true"><span class="fq-no">01</span>What does Ainovus do?<span class="fi-icon">+</span></button>
+          <div class="fa" style="max-height:240px"><div class="fa-inner">Ainovus Pte. Ltd. is a Singapore-based AI short drama company with three core products: (1) AI Video Production — we use AI to produce original short drama content at scale; (2) AI Video Training Courses — we teach creators to produce short drama with AI tools; and (3) a Short Drama Streaming Platform — the Ainovus app, where viewers watch AI-produced dramas across Southeast Asia.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">02</span>What is AI video production?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">AI video production uses artificial intelligence to generate short drama content — from writing scripts and creating characters to generating video scenes, adding voiceover, music, and subtitles. At Ainovus, we use this to produce high-quality short drama series much faster and more cost-effectively than traditional film production.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">03</span>What does the AI Video Training Course cover?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Our AI video training course covers the full short drama production pipeline: Module 1 — AI scriptwriting; Module 2 — AI video generation; Module 3 — voice, audio, and sound design with AI; Module 4 — publishing and monetisation. It's designed for creators, filmmakers, and entrepreneurs. No prior production experience required.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">04</span>How do I watch content on the Ainovus platform?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Download the Ainovus app on iOS or Android, or visit ainovus.ai. Create a free account and start watching original AI-produced short drama content. Our platform offers mood-based browsing and AI-powered recommendations tailored to Southeast Asian audiences.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">05</span>Can businesses commission AI-produced drama content?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Yes. We work with businesses, brands, and media companies on custom AI-produced short drama content, branded series, and co-production projects. Contact us via the form below to discuss your needs.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">06</span>Where is Ainovus based?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Ainovus Pte. Ltd. is headquartered in Singapore at 138 Cecil Street, #06-01 Cecil Court, Singapore 069538. We primarily serve Southeast Asian markets including Singapore, Indonesia, Malaysia, Thailand, the Philippines, and Vietnam.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-dark">
+  <div class="wrap">
+    <span class="label on-dark reveal">Get in touch</span>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-h">Let's start a <span class="it">conversation.</span></h2>
+        <p class="contact-p">Whether you're interested in our AI production services, training courses, streaming platform, or a business partnership — we'd love to hear from you.</p>
+        <div class="cdetails">
+          <div class="cd"><span class="cd-k">Phone</span><span class="cd-v"><a href="tel:+6596636883">+65 96636883</a></span></div>
+          <div class="cd"><span class="cd-k">Email</span><span class="cd-v"><a href="mailto:general@ainovus.ai">general@ainovus.ai</a></span></div>
+          <div class="cd"><span class="cd-k">Support</span><span class="cd-v"><a href="mailto:tech@ainovus.ai">tech@ainovus.ai</a></span></div>
+          <div class="cd"><span class="cd-k">Office</span><span class="cd-v">138 Cecil Street, #06-01 Cecil Court, Singapore 069538</span></div>
+          <div class="cd"><span class="cd-k">Website</span><span class="cd-v"><a href="https://ainovus.ai">ainovus.ai</a></span></div>
+        </div>
+      </div>
+      <div class="form-wrap reveal">
+        <div class="form-title">Send us a message</div>
+        <form id="contactForm">
+          <div class="fr2">
+            <div class="fg"><label for="fname">First name</label><input id="fname" type="text" required/></div>
+            <div class="fg"><label for="lname">Last name</label><input id="lname" type="text" required/></div>
+          </div>
+          <div class="fg"><label for="femail">Email</label><input id="femail" type="email" required/></div>
+          <div class="fg">
+            <label for="fphone">Contact number</label>
+            <div class="fr-phone">
+              <select id="fphonecode" aria-label="Country code" required>
+                <option value="+65" selected>Singapore +65</option>
+                <option value="+93">Afghanistan +93</option>
+                <option value="+355">Albania +355</option>
+                <option value="+213">Algeria +213</option>
+                <option value="+1684">American Samoa +1684</option>
+                <option value="+376">Andorra +376</option>
+                <option value="+244">Angola +244</option>
+                <option value="+1264">Anguilla +1264</option>
+                <option value="+1268">Antigua and Barbuda +1268</option>
+                <option value="+54">Argentina +54</option>
+                <option value="+374">Armenia +374</option>
+                <option value="+297">Aruba +297</option>
+                <option value="+61">Australia +61</option>
+                <option value="+43">Austria +43</option>
+                <option value="+994">Azerbaijan +994</option>
+                <option value="+1242">Bahamas +1242</option>
+                <option value="+973">Bahrain +973</option>
+                <option value="+880">Bangladesh +880</option>
+                <option value="+1246">Barbados +1246</option>
+                <option value="+375">Belarus +375</option>
+                <option value="+32">Belgium +32</option>
+                <option value="+501">Belize +501</option>
+                <option value="+229">Benin +229</option>
+                <option value="+1441">Bermuda +1441</option>
+                <option value="+975">Bhutan +975</option>
+                <option value="+591">Bolivia +591</option>
+                <option value="+387">Bosnia and Herzegovina +387</option>
+                <option value="+267">Botswana +267</option>
+                <option value="+55">Brazil +55</option>
+                <option value="+1284">British Virgin Islands +1284</option>
+                <option value="+673">Brunei +673</option>
+                <option value="+359">Bulgaria +359</option>
+                <option value="+226">Burkina Faso +226</option>
+                <option value="+257">Burundi +257</option>
+                <option value="+855">Cambodia +855</option>
+                <option value="+237">Cameroon +237</option>
+                <option value="+1">Canada +1</option>
+                <option value="+238">Cape Verde +238</option>
+                <option value="+1345">Cayman Islands +1345</option>
+                <option value="+236">Central African Republic +236</option>
+                <option value="+235">Chad +235</option>
+                <option value="+56">Chile +56</option>
+                <option value="+86">China +86</option>
+                <option value="+57">Colombia +57</option>
+                <option value="+269">Comoros +269</option>
+                <option value="+242">Congo +242</option>
+                <option value="+243">Congo (DRC) +243</option>
+                <option value="+682">Cook Islands +682</option>
+                <option value="+506">Costa Rica +506</option>
+                <option value="+385">Croatia +385</option>
+                <option value="+53">Cuba +53</option>
+                <option value="+599">Curaçao +599</option>
+                <option value="+357">Cyprus +357</option>
+                <option value="+420">Czech Republic +420</option>
+                <option value="+45">Denmark +45</option>
+                <option value="+253">Djibouti +253</option>
+                <option value="+1767">Dominica +1767</option>
+                <option value="+1809">Dominican Republic +1809</option>
+                <option value="+593">Ecuador +593</option>
+                <option value="+20">Egypt +20</option>
+                <option value="+503">El Salvador +503</option>
+                <option value="+240">Equatorial Guinea +240</option>
+                <option value="+291">Eritrea +291</option>
+                <option value="+372">Estonia +372</option>
+                <option value="+268">Eswatini +268</option>
+                <option value="+251">Ethiopia +251</option>
+                <option value="+679">Fiji +679</option>
+                <option value="+358">Finland +358</option>
+                <option value="+33">France +33</option>
+                <option value="+689">French Polynesia +689</option>
+                <option value="+241">Gabon +241</option>
+                <option value="+220">Gambia +220</option>
+                <option value="+995">Georgia +995</option>
+                <option value="+49">Germany +49</option>
+                <option value="+233">Ghana +233</option>
+                <option value="+350">Gibraltar +350</option>
+                <option value="+30">Greece +30</option>
+                <option value="+299">Greenland +299</option>
+                <option value="+1473">Grenada +1473</option>
+                <option value="+1671">Guam +1671</option>
+                <option value="+502">Guatemala +502</option>
+                <option value="+44">Guernsey +44</option>
+                <option value="+224">Guinea +224</option>
+                <option value="+245">Guinea-Bissau +245</option>
+                <option value="+592">Guyana +592</option>
+                <option value="+509">Haiti +509</option>
+                <option value="+504">Honduras +504</option>
+                <option value="+852">Hong Kong +852</option>
+                <option value="+36">Hungary +36</option>
+                <option value="+354">Iceland +354</option>
+                <option value="+91">India +91</option>
+                <option value="+62">Indonesia +62</option>
+                <option value="+98">Iran +98</option>
+                <option value="+964">Iraq +964</option>
+                <option value="+353">Ireland +353</option>
+                <option value="+44">Isle of Man +44</option>
+                <option value="+972">Israel +972</option>
+                <option value="+39">Italy +39</option>
+                <option value="+225">Ivory Coast +225</option>
+                <option value="+1876">Jamaica +1876</option>
+                <option value="+81">Japan +81</option>
+                <option value="+44">Jersey +44</option>
+                <option value="+962">Jordan +962</option>
+                <option value="+7">Kazakhstan +7</option>
+                <option value="+254">Kenya +254</option>
+                <option value="+686">Kiribati +686</option>
+                <option value="+383">Kosovo +383</option>
+                <option value="+965">Kuwait +965</option>
+                <option value="+996">Kyrgyzstan +996</option>
+                <option value="+856">Laos +856</option>
+                <option value="+371">Latvia +371</option>
+                <option value="+961">Lebanon +961</option>
+                <option value="+266">Lesotho +266</option>
+                <option value="+231">Liberia +231</option>
+                <option value="+218">Libya +218</option>
+                <option value="+423">Liechtenstein +423</option>
+                <option value="+370">Lithuania +370</option>
+                <option value="+352">Luxembourg +352</option>
+                <option value="+853">Macau +853</option>
+                <option value="+261">Madagascar +261</option>
+                <option value="+265">Malawi +265</option>
+                <option value="+60">Malaysia +60</option>
+                <option value="+960">Maldives +960</option>
+                <option value="+223">Mali +223</option>
+                <option value="+356">Malta +356</option>
+                <option value="+692">Marshall Islands +692</option>
+                <option value="+222">Mauritania +222</option>
+                <option value="+230">Mauritius +230</option>
+                <option value="+52">Mexico +52</option>
+                <option value="+691">Micronesia +691</option>
+                <option value="+373">Moldova +373</option>
+                <option value="+377">Monaco +377</option>
+                <option value="+976">Mongolia +976</option>
+                <option value="+382">Montenegro +382</option>
+                <option value="+1664">Montserrat +1664</option>
+                <option value="+212">Morocco +212</option>
+                <option value="+258">Mozambique +258</option>
+                <option value="+95">Myanmar +95</option>
+                <option value="+264">Namibia +264</option>
+                <option value="+674">Nauru +674</option>
+                <option value="+977">Nepal +977</option>
+                <option value="+31">Netherlands +31</option>
+                <option value="+687">New Caledonia +687</option>
+                <option value="+64">New Zealand +64</option>
+                <option value="+505">Nicaragua +505</option>
+                <option value="+227">Niger +227</option>
+                <option value="+234">Nigeria +234</option>
+                <option value="+683">Niue +683</option>
+                <option value="+850">North Korea +850</option>
+                <option value="+389">North Macedonia +389</option>
+                <option value="+47">Norway +47</option>
+                <option value="+968">Oman +968</option>
+                <option value="+92">Pakistan +92</option>
+                <option value="+680">Palau +680</option>
+                <option value="+970">Palestine +970</option>
+                <option value="+507">Panama +507</option>
+                <option value="+675">Papua New Guinea +675</option>
+                <option value="+595">Paraguay +595</option>
+                <option value="+51">Peru +51</option>
+                <option value="+63">Philippines +63</option>
+                <option value="+48">Poland +48</option>
+                <option value="+351">Portugal +351</option>
+                <option value="+1787">Puerto Rico +1787</option>
+                <option value="+974">Qatar +974</option>
+                <option value="+40">Romania +40</option>
+                <option value="+7">Russia +7</option>
+                <option value="+250">Rwanda +250</option>
+                <option value="+1869">Saint Kitts and Nevis +1869</option>
+                <option value="+1758">Saint Lucia +1758</option>
+                <option value="+1784">Saint Vincent and the Grenadines +1784</option>
+                <option value="+685">Samoa +685</option>
+                <option value="+378">San Marino +378</option>
+                <option value="+239">Sao Tome and Principe +239</option>
+                <option value="+966">Saudi Arabia +966</option>
+                <option value="+221">Senegal +221</option>
+                <option value="+381">Serbia +381</option>
+                <option value="+248">Seychelles +248</option>
+                <option value="+232">Sierra Leone +232</option>
+                <option value="+421">Slovakia +421</option>
+                <option value="+386">Slovenia +386</option>
+                <option value="+677">Solomon Islands +677</option>
+                <option value="+252">Somalia +252</option>
+                <option value="+27">South Africa +27</option>
+                <option value="+82">South Korea +82</option>
+                <option value="+211">South Sudan +211</option>
+                <option value="+34">Spain +34</option>
+                <option value="+94">Sri Lanka +94</option>
+                <option value="+249">Sudan +249</option>
+                <option value="+597">Suriname +597</option>
+                <option value="+46">Sweden +46</option>
+                <option value="+41">Switzerland +41</option>
+                <option value="+963">Syria +963</option>
+                <option value="+886">Taiwan +886</option>
+                <option value="+992">Tajikistan +992</option>
+                <option value="+255">Tanzania +255</option>
+                <option value="+66">Thailand +66</option>
+                <option value="+670">Timor-Leste +670</option>
+                <option value="+228">Togo +228</option>
+                <option value="+676">Tonga +676</option>
+                <option value="+1868">Trinidad and Tobago +1868</option>
+                <option value="+216">Tunisia +216</option>
+                <option value="+90">Turkey +90</option>
+                <option value="+993">Turkmenistan +993</option>
+                <option value="+1649">Turks and Caicos Islands +1649</option>
+                <option value="+688">Tuvalu +688</option>
+                <option value="+256">Uganda +256</option>
+                <option value="+380">Ukraine +380</option>
+                <option value="+971">United Arab Emirates +971</option>
+                <option value="+44">United Kingdom +44</option>
+                <option value="+1">United States +1</option>
+                <option value="+598">Uruguay +598</option>
+                <option value="+998">Uzbekistan +998</option>
+                <option value="+678">Vanuatu +678</option>
+                <option value="+379">Vatican City +379</option>
+                <option value="+58">Venezuela +58</option>
+                <option value="+84">Vietnam +84</option>
+                <option value="+967">Yemen +967</option>
+                <option value="+260">Zambia +260</option>
+                <option value="+263">Zimbabwe +263</option>
+              </select>
+              <input id="fphone" type="tel" inputmode="tel" required/>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="ftopic">Enquiry type</label>
+            <select id="ftopic" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option>AI video production</option>
+              <option>AI training course</option>
+              <option>Streaming platform</option>
+              <option>Business partnership</option>
+              <option>Press &amp; media</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+          <div class="fg"><label for="fmsg">Message</label><textarea id="fmsg" required></textarea></div>
+          <button type="submit" class="form-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <a class="nav-logo" href="#home">
+        <svg viewBox="0 0 34 34" fill="none">
+          <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="15,16 15,20 20,18" fill="#4A86FF"/>
+        </svg>
+        <span class="nav-word">AINOVUS</span>
+      </a>
+      <p class="ft-desc">Drama, Anytime Anywhere. AI-powered short drama — produced, taught, and streamed by Ainovus Pte. Ltd., Singapore.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About us</a></li>
+        <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html" target="_blank" rel="noopener">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#services">AI Video Production</a></li>
+        <li><a href="#services">AI Training Course</a></li>
+        <li><a href="#services">Streaming Platform</a></li>
+        <li><a href="#creators">Creator Tools</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Follow us</h4>
+      <div class="ft-social">
+        <a aria-label="Instagram" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+        <a aria-label="LinkedIn" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a aria-label="Facebook" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a aria-label="X" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Ainovus Pte. Ltd. All rights reserved. Registered in Singapore.</span>
+    <span><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy</a> · <a href="cookie-policy.html" target="_blank" rel="noopener">Cookies</a> · <a href="terms-of-service.html" target="_blank" rel="noopener">Terms</a> · <a href="https://ainovus.ai">ainovus.ai</a></span>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <p>We use cookies to run our site, remember your preferences and understand how visitors use our content. See our <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a> for details.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-line-w" id="cookieReject" type="button">Reject</button>
+      <button class="btn btn-fill" id="cookieAccept" type="button">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<div class="wa-widget">
+  <div class="wa-menu" id="waMenu" role="menu">
+    <div class="wa-menu-head">Chat with us on WhatsApp</div>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20your%20AI%20video%20production%20services." target="_blank" rel="noopener">
+      <span class="wa-item-title">AI Video Production</span>
+      <span class="wa-item-sub">Ask about producing a series</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20your%20AI%20training%20course." target="_blank" rel="noopener">
+      <span class="wa-item-title">AI Training Course</span>
+      <span class="wa-item-sub">Learn about our programmes</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Ainovus%20streaming%20platform." target="_blank" rel="noopener">
+      <span class="wa-item-title">Streaming Platform</span>
+      <span class="wa-item-sub">Questions about the Ainovus app</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27m%20interested%20in%20a%20business%20partnership%20with%20you." target="_blank" rel="noopener">
+      <span class="wa-item-title">Business Partnership</span>
+      <span class="wa-item-sub">Commission content or collaborate</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20the%20product" target="_blank" rel="noopener">
+      <span class="wa-item-title">General Enquiry</span>
+      <span class="wa-item-sub">Something else? Just ask</span>
+    </a>
+  </div>
+  <button type="button" class="whatsapp-btn" id="waToggle" aria-label="Chat with us on WhatsApp" aria-haspopup="true" aria-expanded="false">
+    <span class="wa-ring"></span>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.004c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.51 3.68-8.19 8.2-8.19 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 0 1 2.4 5.8c0 4.51-3.68 8.2-8.19 8.2Zm4.49-6.13c-.25-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.25-.63.79-.78.95-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+  </button>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── PRELOADER ── */
+  const preloader = document.getElementById('preloader');
+  function finishLoad(){
+    setTimeout(() => {
+      preloader.classList.add('done');
+      document.body.classList.add('loaded');
+    }, 700);
+  }
+  if (document.readyState === 'complete') finishLoad();
+  else window.addEventListener('load', finishLoad);
+  setTimeout(() => { if (!document.body.classList.contains('loaded')) finishLoad(); }, 3500);
+
+  /* ── MOBILE NAV ── */
+  const mob = document.getElementById('mob');
+  const ham = document.getElementById('ham');
+  function toggleNav(){
+    const open = mob.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-locked', open);
+  }
+  ham.addEventListener('click', toggleNav);
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    ham.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-locked');
+  }));
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.fq').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const ans = item.querySelector('.fa');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.fa').style.maxHeight = '0';
+        i.querySelector('.fq').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── FORM ── */
+  const form = document.getElementById('contactForm');
+  if (form){
+    const CONTACT_EMAIL = 'general@ainovus.ai';
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-btn');
+
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const phoneCode = document.getElementById('fphonecode').value;
+      const phone = document.getElementById('fphone').value.trim();
+      const topic = document.getElementById('ftopic').value;
+      const message = document.getElementById('fmsg').value.trim();
+
+      const subject = `Website enquiry — ${topic || 'General enquiry'}`;
+      const body = [
+        `Name: ${fname} ${lname}`,
+        `Email: ${email}`,
+        `Phone: ${phoneCode} ${phone}`,
+        `Enquiry type: ${topic}`,
+        '',
+        'Message:',
+        message
+      ].join('\n');
+
+      const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      btn.textContent = 'Opening your email app…';
+      btn.disabled = true;
+
+      window.location.href = mailtoLink;
+
+      setTimeout(() => {
+        btn.textContent = 'Submit';
+        btn.disabled = false;
+      }, 2500);
+    });
+  }
+
+  /* ── SCROLL: nav + progress + to-top + spy + reveal ── */
+  const nav = document.getElementById('nav');
+  const progress = document.getElementById('scrollProgress');
+  const toTop = document.getElementById('toTop');
+  const spyLinks = document.querySelectorAll('a.nav-a');
+  const spySections = ['home','about','work','services','creators','faq','contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const logSheet = document.getElementById('logSheet');
+
+  function checkReveal(){
+    document.querySelectorAll('.reveal:not(.in), .reveal-img:not(.in)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight - 40 && r.bottom > 0) el.classList.add('in');
+    });
+    if (logSheet && !logSheet.classList.contains('log-done')){
+      const r = logSheet.getBoundingClientRect();
+      if (r.top < window.innerHeight - 80 && r.bottom > 0){
+        logSheet.classList.add('log-done');
+        logSheet.querySelectorAll('.log-row').forEach((row, i) => setTimeout(() => row.classList.add('in'), 140 * i));
+      }
+    }
+  }
+
+  let ticking = false;
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 20);
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      toTop.classList.toggle('show', y > 600);
+      let current = 'home';
+      for (const s of spySections){ if (y >= s.offsetTop - 160) current = s.id; }
+      spyLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      checkReveal();
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', checkReveal);
+  onScroll();
+  checkReveal();
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── COOKIE CONSENT ── */
+  (function(){
+    const KEY = 'ainovus_cookie_consent';
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    const acceptBtn = document.getElementById('cookieAccept');
+    const rejectBtn = document.getElementById('cookieReject');
+
+    let stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+    if (!stored) {
+      setTimeout(() => banner.classList.add('show'), 900);
+    }
+
+    function setConsent(value){
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      banner.classList.remove('show');
+    }
+
+    if (acceptBtn) acceptBtn.addEventListener('click', () => setConsent('accepted'));
+    if (rejectBtn) rejectBtn.addEventListener('click', () => setConsent('rejected'));
+  })();
+
+  /* ── WHATSAPP MENU ── */
+  (function(){
+    const toggle = document.getElementById('waToggle');
+    const menu = document.getElementById('waMenu');
+    if (!toggle || !menu) return;
+
+    function closeMenu(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    menu.querySelectorAll('.wa-menu-item').forEach(item => {
+      item.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', e => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+
+  /* ── SOCIAL ICONS (placeholder links) ── */
+  document.querySelectorAll('.ft-social a').forEach(a => {
+    a.addEventListener('click', e => e.preventDefault());
+  });
+
+  /* ── SMOOTH ANCHORS ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const t = document.querySelector(id);
+      if (t){ e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

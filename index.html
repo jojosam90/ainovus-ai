@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ainovus Pte. Ltd. — AI Short Drama Studio | Produce. Learn. Stream.</title>
+<meta name="description" content="Ainovus is Southeast Asia's AI-powered short drama company — we produce original content with AI, train creators to do the same, and stream it on our own platform."/>
+<meta name="theme-color" content="#0B1933"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M17 2L31 29H3L17 2Z' stroke='%231A5CE8' stroke-width='2' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5' stroke='%231A5CE8' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpolygon points='15,16 15,20 20,18' fill='%231A5CE8'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <svg class="pre-mark" viewBox="0 0 34 34" fill="none">
+    <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="1.4" stroke-linecap="round"/>
+    <polygon points="15,16 15,20 20,18" fill="none" stroke="#8AB4FF" stroke-width="1.2"/>
+  </svg>
+  <div class="pre-word">AINOVUS</div>
+  <div class="pre-sub">AI Short Drama Studio</div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="nav-mask"></div>
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#home">
+    <svg viewBox="0 0 34 34" fill="none">
+      <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="2" stroke-linecap="round"/>
+      <polygon points="15,16 15,20 20,18" fill="#4A86FF"/>
+    </svg>
+    <span class="nav-word">AINOVUS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a class="nav-a" href="#home">Home</a></li>
+    <li><a class="nav-a" href="#about">About</a></li>
+    <li><a class="nav-a" href="#work">Work</a></li>
+    <li><a class="nav-a" href="#services">Services</a></li>
+    <li><a class="nav-a" href="#creators">Creator tools</a></li>
+    <li><a class="nav-a" href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta btn btn-fill" href="#contact"><span>Contact us</span></a>
+  <button class="ham" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob">
+  <a class="nav-a" href="#home"><small>01</small>Home</a>
+  <a class="nav-a" href="#about"><small>02</small>About</a>
+  <a class="nav-a" href="#work"><small>03</small>Work</a>
+  <a class="nav-a" href="#services"><small>04</small>Services</a>
+  <a class="nav-a" href="#creators"><small>05</small>Creator tools</a>
+  <a class="nav-a" href="#faq"><small>06</small>FAQ</a>
+  <a class="nav-a" href="#contact"><small>07</small>Contact us</a>
+  <div class="mob-meta">Singapore · ainovus.ai · +65 96636883</div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="hero-kicker label on-dark reveal">Ainovus Pte. Ltd. — Singapore · Est. 2022</div>
+      <h1 class="hero-title reveal">Short drama, made by <em>AI,</em> watched by millions.</h1>
+      <p class="hero-sub reveal">Ainovus is Southeast Asia's AI-powered short drama company — we produce original content with AI, train creators to do the same, and stream it on our own platform.</p>
+      <div class="hero-ctas reveal">
+        <a class="btn btn-fill" href="#services"><span>Explore services 👋</span></a>
+        <a class="btn btn-ghost-w" href="#contact">Contact us</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hstat"><span class="hstat-n">12</span><span class="hstat-l">Episodes in under 3 weeks</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">6</span><span class="hstat-l">SEA markets served</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">iOS·AOS</span><span class="hstat-l">Live now</span></div>
+      </div>
+    </div>
+    <div class="hero-right reveal-img">
+      <div class="collage">
+        <div class="col-tile col-a"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80&auto=format&fit=crop" alt="Cinema audience watching a premiere" loading="lazy" decoding="async"/></div>
+        <div class="col-tile col-b"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80&auto=format&fit=crop" alt="Film production set" loading="lazy" decoding="async"/></div>
+        <div class="col-tile col-c"><img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80&auto=format&fit=crop" alt="Browsing short drama content on a mobile phone" loading="lazy" decoding="async"/></div>
+      </div>
+      <div class="collage-badge">
+        <span class="cb-dot"></span>
+        <div><strong>12 episodes</strong><small>shipped in &lt; 3 weeks</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="split-block reveal">
+      <figure class="split-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1100&q=80&auto=format&fit=crop" alt="Cinema audience watching a premiere" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="split-body">
+        <span class="label">About the company</span>
+        <h2 class="split-title">We sit where <span class="it">artificial intelligence</span> meets the oldest human habit — <span class="it">a good story.</span></h2>
+        <p class="lede">Founded in Singapore, Ainovus Pte. Ltd. sits at the intersection of artificial intelligence and short-form entertainment. We use AI to produce original short dramas faster and at scale — then stream them on our own platform built for Southeast Asian audiences.</p>
+        <p class="body-t">We also share what we know. Our AI video training courses teach creators, filmmakers and entrepreneurs how to harness AI tools to produce compelling short drama — without a traditional production budget.</p>
+        <ul class="check-list">
+          <li><span class="check-ico">✓</span><div><strong>AI Video Production</strong> — scripts, visuals, voice and post, produced entirely with AI.</div></li>
+          <li><span class="check-ico">✓</span><div><strong>AI Training Courses</strong> — hands-on programmes for creators, no studio needed.</div></li>
+          <li><span class="check-ico">✓</span><div><strong>Streaming Platform</strong> — the Ainovus app, live on iOS &amp; Android.</div></li>
+        </ul>
+        <p class="based-line"><strong>Based in Singapore</strong> — serving Indonesia, Malaysia, Thailand, the Philippines &amp; Vietnam.</p>
+        <a class="btn btn-dark" href="#work">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section id="advantages" class="sec-gray">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Why Ainovus</span>
+      <h2 class="sec-title">Unlock the <span class="it">advantages</span> of AI-made drama.</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal"><span class="adv-no">01</span><h3>Fast Production</h3><p>12 episodes produced in under 3 weeks, script to publish.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.06s"><span class="adv-no">02</span><h3>Full AI Toolkit</h3><p>Script, video, voice and publishing handled end-to-end with AI.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.12s"><span class="adv-no">03</span><h3>Own Streaming Platform</h3><p>The Ainovus app, live now on iOS and Android.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.18s"><span class="adv-no">04</span><h3>Regional Reach</h3><p>Serving 6 Southeast Asian markets and growing.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.24s"><span class="adv-no">05</span><h3>Creator Training</h3><p>Learn the full AI production pipeline — no studio required.</p></div>
+      <div class="adv-card reveal" style="transition-delay:.3s"><span class="adv-no">06</span><h3>Singapore Based</h3><p>Headquartered in Singapore, built for Southeast Asian audiences.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="sec-dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label on-dark">Selected work</span>
+      <h2 class="sec-title">Showcasing our <span class="it">best work.</span></h2>
+    </div>
+
+    <div class="work-item">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=900&q=80&auto=format&fit=crop" alt="Film production set for Midnight in Jakarta" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">Romance / Drama, Singapore</span>
+        <h3 class="work-title">Midnight in Jakarta</h3>
+        <p class="work-desc">Script, scenes, voice, subtitles — our team used the full Ainovus AI toolkit to take a romance drama from premise to publish-ready in three weeks, now streaming on the Ainovus platform.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">12</span><span class="wstat-l">Episodes</span></div>
+          <div class="wstat"><span class="wstat-n">5 min</span><span class="wstat-l">Per episode</span></div>
+          <div class="wstat"><span class="wstat-n">&lt;3 wks</span><span class="wstat-l">Script to publish</span></div>
+        </div>
+        <a class="read-link" href="#creators">See how it was made <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+
+    <div class="work-item reverse">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop" alt="AI training course session" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">Creator programme</span>
+        <h3 class="work-title">AI Video Training Course</h3>
+        <p class="work-desc">An online programme covering AI scriptwriting, video generation, voice &amp; audio AI, editing and publishing — for creators, filmmakers and entrepreneurs, no prior production experience needed.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">4</span><span class="wstat-l">AI modules</span></div>
+          <div class="wstat"><span class="wstat-n">0</span><span class="wstat-l">Studio required</span></div>
+        </div>
+        <a class="read-link" href="#creators">Explore the curriculum <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <figure class="work-img reveal-img">
+        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=900&q=80&auto=format&fit=crop" alt="Browsing short drama content on a mobile phone" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="work-body">
+        <span class="label on-dark">The Ainovus app</span>
+        <h3 class="work-title">Short Drama Streaming Platform</h3>
+        <p class="work-desc">Our own mobile platform for AI-produced short drama on iOS and Android, with mood-based browsing and AI recommendations built for Southeast Asian audiences.</p>
+        <div class="work-stats">
+          <div class="wstat"><span class="wstat-n">iOS·AOS</span><span class="wstat-l">Native apps</span></div>
+          <div class="wstat"><span class="wstat-n">6</span><span class="wstat-l">Markets served</span></div>
+        </div>
+        <a class="read-link" href="#contact">Get platform access <span class="arrow-e">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">What we do</span>
+      <h2 class="sec-title">Everything you need to make, learn, and watch <span class="it">AI drama</span> — under one roof.</h2>
+    </div>
+    <div class="srv-grid">
+      <a class="srv-card reveal" href="#contact">
+        <span class="srv-no">01</span>
+        <h3 class="srv-name">AI Video Production</h3>
+        <p class="srv-desc">Original short drama produced end-to-end with AI.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="srv-card reveal" style="transition-delay:.06s" href="#contact">
+        <span class="srv-no">02</span>
+        <h3 class="srv-name">AI Video Training Course</h3>
+        <p class="srv-desc">Learn to produce short drama with AI, no studio needed.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="srv-card reveal" style="transition-delay:.12s" href="#contact">
+        <span class="srv-no">03</span>
+        <h3 class="srv-name">Short Drama Streaming Platform</h3>
+        <p class="srv-desc">The Ainovus app, live on iOS &amp; Android.</p>
+        <span class="srv-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+    <a class="btn btn-dark srv-all" href="#contact">All services</a>
+  </div>
+</section>
+
+<!-- CREATOR TOOLS -->
+<section id="creators">
+  <div class="wrap creators-inner">
+    <div class="cr-head">
+      <div class="reveal">
+        <span class="label on-dark">Creator tools — the studio</span>
+        <h2 class="cr-title">Make short drama with AI.<br/><em>No studio needed.</em></h2>
+      </div>
+      <div class="cr-side reveal">
+        <p>Our full AI production toolkit — from idea to finished episode, with no camera crew, no actors, and no traditional budget required.</p>
+        <a class="btn btn-fill" href="#contact"><span>Get access</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cr-grid">
+      <div class="cr-cell reveal"><span class="cr-cell-no">Tool / 01</span><h3>AI Script Writing</h3><p>Generate episode-ready scripts from a simple idea — full dialogue, story beats and emotional hooks included.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.08s"><span class="cr-cell-no">Tool / 02</span><h3>AI Video Generation</h3><p>Turn scripts into cinematic episodes — AI scenes, characters, expressions and camera movement.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.16s"><span class="cr-cell-no">Tool / 03</span><h3>Voice &amp; Audio AI</h3><p>AI voiceovers, multilingual dubbing, music and sound effects — studio-quality audio, automatically.</p></div>
+      <div class="cr-cell reveal" style="transition-delay:.24s"><span class="cr-cell-no">Tool / 04</span><h3>Publish to Ainovus</h3><p>One-click distribution to the Ainovus platform — reach viewers across Southeast Asia instantly.</p></div>
+    </div>
+
+    <div class="cr-log">
+      <div class="log-sheet reveal" id="logSheet">
+        <div class="log-head"><span class="log-live"><i></i>Production run — live</span><span class="log-tag">ainovus_studio</span></div>
+        <div class="log-row"><span class="log-k">Series</span><span class="log-v accent">Midnight in Jakarta</span></div>
+        <div class="log-row"><span class="log-k">Genre</span><span class="log-v">Romance / Drama</span></div>
+        <div class="log-row"><span class="log-k">Episodes</span><span class="log-v">12 × 5 min</span></div>
+        <div class="log-row"><span class="log-k">Script</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Generated</span></div>
+        <div class="log-row"><span class="log-k">Scenes</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Rendered</span></div>
+        <div class="log-row"><span class="log-k">Voice &amp; subs</span><span class="log-v"><span class="log-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Added</span></div>
+        <div class="log-row"><span class="log-k">Status</span><span class="log-status">Ready to publish</span></div>
+      </div>
+      <div class="cr-modules reveal">
+        <div class="mod-row"><span class="mod-no">M.1</span><span class="mod-name">AI Scriptwriting<small>From premise to full episode dialogue</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.2</span><span class="mod-name">AI Video Generation<small>Scenes, characters and cinematic motion</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.3</span><span class="mod-name">Voice &amp; Audio AI<small>Voiceover, dubbing, music and sound design</small></span><span class="mod-tag">Included</span></div>
+        <div class="mod-row"><span class="mod-no">M.4</span><span class="mod-name">Publishing &amp; Monetisation<small>Launch on Ainovus and grow an audience</small></span><span class="mod-tag">Included</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec-gray">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left reveal">
+        <span class="label">FAQ</span>
+        <h2>Frequently<br/>asked questions</h2>
+        <p>Everything you need to know about Ainovus — our products, services, courses, and platform. Can't find it here? Our team responds within 1 business day.</p>
+        <a class="btn btn-dark" href="#contact">Contact us</a>
+      </div>
+      <div class="faq-list">
+        <div class="fi open reveal">
+          <button class="fq" aria-expanded="true"><span class="fq-no">01</span>What does Ainovus do?<span class="fi-icon">+</span></button>
+          <div class="fa" style="max-height:240px"><div class="fa-inner">Ainovus Pte. Ltd. is a Singapore-based AI short drama company with three core products: (1) AI Video Production — we use AI to produce original short drama content at scale; (2) AI Video Training Courses — we teach creators to produce short drama with AI tools; and (3) a Short Drama Streaming Platform — the Ainovus app, where viewers watch AI-produced dramas across Southeast Asia.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">02</span>What is AI video production?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">AI video production uses artificial intelligence to generate short drama content — from writing scripts and creating characters to generating video scenes, adding voiceover, music, and subtitles. At Ainovus, we use this to produce high-quality short drama series much faster and more cost-effectively than traditional film production.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">03</span>What does the AI Video Training Course cover?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Our AI video training course covers the full short drama production pipeline: Module 1 — AI scriptwriting; Module 2 — AI video generation; Module 3 — voice, audio, and sound design with AI; Module 4 — publishing and monetisation. It's designed for creators, filmmakers, and entrepreneurs. No prior production experience required.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">04</span>How do I watch content on the Ainovus platform?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Download the Ainovus app on iOS or Android, or visit ainovus.ai. Create a free account and start watching original AI-produced short drama content. Our platform offers mood-based browsing and AI-powered recommendations tailored to Southeast Asian audiences.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">05</span>Can businesses commission AI-produced drama content?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Yes. We work with businesses, brands, and media companies on custom AI-produced short drama content, branded series, and co-production projects. Contact us via the form below to discuss your needs.</div></div>
+        </div>
+        <div class="fi reveal">
+          <button class="fq" aria-expanded="false"><span class="fq-no">06</span>Where is Ainovus based?<span class="fi-icon">+</span></button>
+          <div class="fa"><div class="fa-inner">Ainovus Pte. Ltd. is headquartered in Singapore at 138 Cecil Street, #06-01 Cecil Court, Singapore 069538. We primarily serve Southeast Asian markets including Singapore, Indonesia, Malaysia, Thailand, the Philippines, and Vietnam.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-dark">
+  <div class="wrap">
+    <span class="label on-dark reveal">Get in touch</span>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-h">Let's start a <span class="it">conversation.</span></h2>
+        <p class="contact-p">Whether you're interested in our AI production services, training courses, streaming platform, or a business partnership — we'd love to hear from you.</p>
+        <div class="cdetails">
+          <div class="cd"><span class="cd-k">Phone</span><span class="cd-v"><a href="tel:+6596636883">+65 96636883</a></span></div>
+          <div class="cd"><span class="cd-k">Email</span><span class="cd-v"><a href="mailto:general@ainovus.ai">general@ainovus.ai</a></span></div>
+          <div class="cd"><span class="cd-k">Support</span><span class="cd-v"><a href="mailto:tech@ainovus.ai">tech@ainovus.ai</a></span></div>
+          <div class="cd"><span class="cd-k">Office</span><span class="cd-v">138 Cecil Street, #06-01 Cecil Court, Singapore 069538</span></div>
+          <div class="cd"><span class="cd-k">Website</span><span class="cd-v"><a href="https://ainovus.ai">ainovus.ai</a></span></div>
+        </div>
+      </div>
+      <div class="form-wrap reveal">
+        <div class="form-title">Send us a message</div>
+        <form id="contactForm">
+          <div class="fr2">
+            <div class="fg"><label for="fname">First name</label><input id="fname" type="text" required/></div>
+            <div class="fg"><label for="lname">Last name</label><input id="lname" type="text" required/></div>
+          </div>
+          <div class="fg"><label for="femail">Email</label><input id="femail" type="email" required/></div>
+          <div class="fg">
+            <label for="fphone">Contact number</label>
+            <div class="fr-phone">
+              <select id="fphonecode" aria-label="Country code" required>
+                <option value="+65" selected>Singapore +65</option>
+                <option value="+93">Afghanistan +93</option>
+                <option value="+355">Albania +355</option>
+                <option value="+213">Algeria +213</option>
+                <option value="+1684">American Samoa +1684</option>
+                <option value="+376">Andorra +376</option>
+                <option value="+244">Angola +244</option>
+                <option value="+1264">Anguilla +1264</option>
+                <option value="+1268">Antigua and Barbuda +1268</option>
+                <option value="+54">Argentina +54</option>
+                <option value="+374">Armenia +374</option>
+                <option value="+297">Aruba +297</option>
+                <option value="+61">Australia +61</option>
+                <option value="+43">Austria +43</option>
+                <option value="+994">Azerbaijan +994</option>
+                <option value="+1242">Bahamas +1242</option>
+                <option value="+973">Bahrain +973</option>
+                <option value="+880">Bangladesh +880</option>
+                <option value="+1246">Barbados +1246</option>
+                <option value="+375">Belarus +375</option>
+                <option value="+32">Belgium +32</option>
+                <option value="+501">Belize +501</option>
+                <option value="+229">Benin +229</option>
+                <option value="+1441">Bermuda +1441</option>
+                <option value="+975">Bhutan +975</option>
+                <option value="+591">Bolivia +591</option>
+                <option value="+387">Bosnia and Herzegovina +387</option>
+                <option value="+267">Botswana +267</option>
+                <option value="+55">Brazil +55</option>
+                <option value="+1284">British Virgin Islands +1284</option>
+                <option value="+673">Brunei +673</option>
+                <option value="+359">Bulgaria +359</option>
+                <option value="+226">Burkina Faso +226</option>
+                <option value="+257">Burundi +257</option>
+                <option value="+855">Cambodia +855</option>
+                <option value="+237">Cameroon +237</option>
+                <option value="+1">Canada +1</option>
+                <option value="+238">Cape Verde +238</option>
+                <option value="+1345">Cayman Islands +1345</option>
+                <option value="+236">Central African Republic +236</option>
+                <option value="+235">Chad +235</option>
+                <option value="+56">Chile +56</option>
+                <option value="+86">China +86</option>
+                <option value="+57">Colombia +57</option>
+                <option value="+269">Comoros +269</option>
+                <option value="+242">Congo +242</option>
+                <option value="+243">Congo (DRC) +243</option>
+                <option value="+682">Cook Islands +682</option>
+                <option value="+506">Costa Rica +506</option>
+                <option value="+385">Croatia +385</option>
+                <option value="+53">Cuba +53</option>
+                <option value="+599">Curaçao +599</option>
+                <option value="+357">Cyprus +357</option>
+                <option value="+420">Czech Republic +420</option>
+                <option value="+45">Denmark +45</option>
+                <option value="+253">Djibouti +253</option>
+                <option value="+1767">Dominica +1767</option>
+                <option value="+1809">Dominican Republic +1809</option>
+                <option value="+593">Ecuador +593</option>
+                <option value="+20">Egypt +20</option>
+                <option value="+503">El Salvador +503</option>
+                <option value="+240">Equatorial Guinea +240</option>
+                <option value="+291">Eritrea +291</option>
+                <option value="+372">Estonia +372</option>
+                <option value="+268">Eswatini +268</option>
+                <option value="+251">Ethiopia +251</option>
+                <option value="+679">Fiji +679</option>
+                <option value="+358">Finland +358</option>
+                <option value="+33">France +33</option>
+                <option value="+689">French Polynesia +689</option>
+                <option value="+241">Gabon +241</option>
+                <option value="+220">Gambia +220</option>
+                <option value="+995">Georgia +995</option>
+                <option value="+49">Germany +49</option>
+                <option value="+233">Ghana +233</option>
+                <option value="+350">Gibraltar +350</option>
+                <option value="+30">Greece +30</option>
+                <option value="+299">Greenland +299</option>
+                <option value="+1473">Grenada +1473</option>
+                <option value="+1671">Guam +1671</option>
+                <option value="+502">Guatemala +502</option>
+                <option value="+44">Guernsey +44</option>
+                <option value="+224">Guinea +224</option>
+                <option value="+245">Guinea-Bissau +245</option>
+                <option value="+592">Guyana +592</option>
+                <option value="+509">Haiti +509</option>
+                <option value="+504">Honduras +504</option>
+                <option value="+852">Hong Kong +852</option>
+                <option value="+36">Hungary +36</option>
+                <option value="+354">Iceland +354</option>
+                <option value="+91">India +91</option>
+                <option value="+62">Indonesia +62</option>
+                <option value="+98">Iran +98</option>
+                <option value="+964">Iraq +964</option>
+                <option value="+353">Ireland +353</option>
+                <option value="+44">Isle of Man +44</option>
+                <option value="+972">Israel +972</option>
+                <option value="+39">Italy +39</option>
+                <option value="+225">Ivory Coast +225</option>
+                <option value="+1876">Jamaica +1876</option>
+                <option value="+81">Japan +81</option>
+                <option value="+44">Jersey +44</option>
+                <option value="+962">Jordan +962</option>
+                <option value="+7">Kazakhstan +7</option>
+                <option value="+254">Kenya +254</option>
+                <option value="+686">Kiribati +686</option>
+                <option value="+383">Kosovo +383</option>
+                <option value="+965">Kuwait +965</option>
+                <option value="+996">Kyrgyzstan +996</option>
+                <option value="+856">Laos +856</option>
+                <option value="+371">Latvia +371</option>
+                <option value="+961">Lebanon +961</option>
+                <option value="+266">Lesotho +266</option>
+                <option value="+231">Liberia +231</option>
+                <option value="+218">Libya +218</option>
+                <option value="+423">Liechtenstein +423</option>
+                <option value="+370">Lithuania +370</option>
+                <option value="+352">Luxembourg +352</option>
+                <option value="+853">Macau +853</option>
+                <option value="+261">Madagascar +261</option>
+                <option value="+265">Malawi +265</option>
+                <option value="+60">Malaysia +60</option>
+                <option value="+960">Maldives +960</option>
+                <option value="+223">Mali +223</option>
+                <option value="+356">Malta +356</option>
+                <option value="+692">Marshall Islands +692</option>
+                <option value="+222">Mauritania +222</option>
+                <option value="+230">Mauritius +230</option>
+                <option value="+52">Mexico +52</option>
+                <option value="+691">Micronesia +691</option>
+                <option value="+373">Moldova +373</option>
+                <option value="+377">Monaco +377</option>
+                <option value="+976">Mongolia +976</option>
+                <option value="+382">Montenegro +382</option>
+                <option value="+1664">Montserrat +1664</option>
+                <option value="+212">Morocco +212</option>
+                <option value="+258">Mozambique +258</option>
+                <option value="+95">Myanmar +95</option>
+                <option value="+264">Namibia +264</option>
+                <option value="+674">Nauru +674</option>
+                <option value="+977">Nepal +977</option>
+                <option value="+31">Netherlands +31</option>
+                <option value="+687">New Caledonia +687</option>
+                <option value="+64">New Zealand +64</option>
+                <option value="+505">Nicaragua +505</option>
+                <option value="+227">Niger +227</option>
+                <option value="+234">Nigeria +234</option>
+                <option value="+683">Niue +683</option>
+                <option value="+850">North Korea +850</option>
+                <option value="+389">North Macedonia +389</option>
+                <option value="+47">Norway +47</option>
+                <option value="+968">Oman +968</option>
+                <option value="+92">Pakistan +92</option>
+                <option value="+680">Palau +680</option>
+                <option value="+970">Palestine +970</option>
+                <option value="+507">Panama +507</option>
+                <option value="+675">Papua New Guinea +675</option>
+                <option value="+595">Paraguay +595</option>
+                <option value="+51">Peru +51</option>
+                <option value="+63">Philippines +63</option>
+                <option value="+48">Poland +48</option>
+                <option value="+351">Portugal +351</option>
+                <option value="+1787">Puerto Rico +1787</option>
+                <option value="+974">Qatar +974</option>
+                <option value="+40">Romania +40</option>
+                <option value="+7">Russia +7</option>
+                <option value="+250">Rwanda +250</option>
+                <option value="+1869">Saint Kitts and Nevis +1869</option>
+                <option value="+1758">Saint Lucia +1758</option>
+                <option value="+1784">Saint Vincent and the Grenadines +1784</option>
+                <option value="+685">Samoa +685</option>
+                <option value="+378">San Marino +378</option>
+                <option value="+239">Sao Tome and Principe +239</option>
+                <option value="+966">Saudi Arabia +966</option>
+                <option value="+221">Senegal +221</option>
+                <option value="+381">Serbia +381</option>
+                <option value="+248">Seychelles +248</option>
+                <option value="+232">Sierra Leone +232</option>
+                <option value="+421">Slovakia +421</option>
+                <option value="+386">Slovenia +386</option>
+                <option value="+677">Solomon Islands +677</option>
+                <option value="+252">Somalia +252</option>
+                <option value="+27">South Africa +27</option>
+                <option value="+82">South Korea +82</option>
+                <option value="+211">South Sudan +211</option>
+                <option value="+34">Spain +34</option>
+                <option value="+94">Sri Lanka +94</option>
+                <option value="+249">Sudan +249</option>
+                <option value="+597">Suriname +597</option>
+                <option value="+46">Sweden +46</option>
+                <option value="+41">Switzerland +41</option>
+                <option value="+963">Syria +963</option>
+                <option value="+886">Taiwan +886</option>
+                <option value="+992">Tajikistan +992</option>
+                <option value="+255">Tanzania +255</option>
+                <option value="+66">Thailand +66</option>
+                <option value="+670">Timor-Leste +670</option>
+                <option value="+228">Togo +228</option>
+                <option value="+676">Tonga +676</option>
+                <option value="+1868">Trinidad and Tobago +1868</option>
+                <option value="+216">Tunisia +216</option>
+                <option value="+90">Turkey +90</option>
+                <option value="+993">Turkmenistan +993</option>
+                <option value="+1649">Turks and Caicos Islands +1649</option>
+                <option value="+688">Tuvalu +688</option>
+                <option value="+256">Uganda +256</option>
+                <option value="+380">Ukraine +380</option>
+                <option value="+971">United Arab Emirates +971</option>
+                <option value="+44">United Kingdom +44</option>
+                <option value="+1">United States +1</option>
+                <option value="+598">Uruguay +598</option>
+                <option value="+998">Uzbekistan +998</option>
+                <option value="+678">Vanuatu +678</option>
+                <option value="+379">Vatican City +379</option>
+                <option value="+58">Venezuela +58</option>
+                <option value="+84">Vietnam +84</option>
+                <option value="+967">Yemen +967</option>
+                <option value="+260">Zambia +260</option>
+                <option value="+263">Zimbabwe +263</option>
+              </select>
+              <input id="fphone" type="tel" inputmode="tel" required/>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="ftopic">Enquiry type</label>
+            <select id="ftopic" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option>AI video production</option>
+              <option>AI training course</option>
+              <option>Streaming platform</option>
+              <option>Business partnership</option>
+              <option>Press &amp; media</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+          <div class="fg"><label for="fmsg">Message</label><textarea id="fmsg" required></textarea></div>
+          <button type="submit" class="form-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <a class="nav-logo" href="#home">
+        <svg viewBox="0 0 34 34" fill="none">
+          <path d="M17 2L31 29H3L17 2Z" stroke="#4A86FF" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 23.5C10 23.5 12.5 18 17 18C21.5 18 24 23.5 24 23.5" stroke="#4A86FF" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="15,16 15,20 20,18" fill="#4A86FF"/>
+        </svg>
+        <span class="nav-word">AINOVUS</span>
+      </a>
+      <p class="ft-desc">Drama, Anytime Anywhere. AI-powered short drama — produced, taught, and streamed by Ainovus Pte. Ltd., Singapore.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About us</a></li>
+        <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html" target="_blank" rel="noopener">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#services">AI Video Production</a></li>
+        <li><a href="#services">AI Training Course</a></li>
+        <li><a href="#services">Streaming Platform</a></li>
+        <li><a href="#creators">Creator Tools</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Follow us</h4>
+      <div class="ft-social">
+        <a aria-label="Instagram" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+        <a aria-label="LinkedIn" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a aria-label="Facebook" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a aria-label="X" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Ainovus Pte. Ltd. All rights reserved. Registered in Singapore.</span>
+    <span><a href="privacy-policy.html">Privacy</a> · <a href="cookie-policy.html">Cookies</a> · <a href="terms-of-service.html">Terms</a> · <a href="https://ainovus.ai">ainovus.ai</a></span>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <p>We use cookies to run our site, remember your preferences and understand how visitors use our content. See our <a href="cookie-policy.html">Cookie Policy</a> for details.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-line-w" id="cookieReject" type="button">Reject</button>
+      <button class="btn btn-fill" id="cookieAccept" type="button">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<div class="wa-widget">
+  <div class="wa-menu" id="waMenu" role="menu">
+    <div class="wa-menu-head">Chat with us on WhatsApp</div>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20your%20AI%20video%20production%20services." target="_blank" rel="noopener">
+      <span class="wa-item-title">AI Video Production</span>
+      <span class="wa-item-sub">Ask about producing a series</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20your%20AI%20training%20course." target="_blank" rel="noopener">
+      <span class="wa-item-title">AI Training Course</span>
+      <span class="wa-item-sub">Learn about our programmes</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Ainovus%20streaming%20platform." target="_blank" rel="noopener">
+      <span class="wa-item-title">Streaming Platform</span>
+      <span class="wa-item-sub">Questions about the Ainovus app</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27m%20interested%20in%20a%20business%20partnership%20with%20you." target="_blank" rel="noopener">
+      <span class="wa-item-title">Business Partnership</span>
+      <span class="wa-item-sub">Commission content or collaborate</span>
+    </a>
+    <a class="wa-menu-item" role="menuitem" href="https://wa.me/6596636883?text=Hi%20Ainovus%2C%20I%27d%20like%20to%20know%20more%20about%20the%20product" target="_blank" rel="noopener">
+      <span class="wa-item-title">General Enquiry</span>
+      <span class="wa-item-sub">Something else? Just ask</span>
+    </a>
+  </div>
+  <button type="button" class="whatsapp-btn" id="waToggle" aria-label="Chat with us on WhatsApp" aria-haspopup="true" aria-expanded="false">
+    <span class="wa-ring"></span>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.004c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.51 3.68-8.19 8.2-8.19 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 0 1 2.4 5.8c0 4.51-3.68 8.2-8.19 8.2Zm4.49-6.13c-.25-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.25-.63.79-.78.95-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+  </button>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
