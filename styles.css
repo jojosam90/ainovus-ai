@@ -86,7 +86,7 @@ section{padding:72px 0}
 nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:1000;width:min(1180px,92%);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 12px 12px 22px;background:rgba(11,25,51,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.08);border-radius:100px;transition:background .3s var(--ease),box-shadow .3s var(--ease),padding .3s var(--ease)}
 nav.scrolled{background:rgba(11,25,51,.94);box-shadow:0 16px 40px -16px rgba(0,0,0,.4)}
 .nav-logo{display:flex;align-items:center;gap:9px}
-.nav-logo svg{width:24px;height:24px}
+.nav-logo svg,.nav-logo img{width:24px;height:24px;object-fit:contain}
 .nav-word{font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.1em;color:#fff}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.62);position:relative;padding:4px 0;transition:color .25s}
